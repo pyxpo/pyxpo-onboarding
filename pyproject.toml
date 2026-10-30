@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyxpo-onboarding"
+dynamic = ["version"]
+description = "Customizable onboarding and intro slides for pyxpo apps: swipeable pages, animated indicators, parallax, color transitions and a seen flag."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Vishal Chaubey" }]
+keywords = ["pyxpo", "pyxpo-module", "mobile", "android", "ios", "onboarding", "intro", "walkthrough", "slider", "carousel"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: Android",
+    "Operating System :: iOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+requires-python = ">=3.9"
+dependencies = ["pyxpo>=0.1.0a4,<0.2"]
+
+[project.optional-dependencies]
+storage = ["pyxpo-storage>=0.1.0a2"]
+
+[project.urls]
+Homepage = "https://github.com/pyxpo/pyxpo-onboarding"
+Documentation = "https://github.com/pyxpo/pyxpo-onboarding/blob/main/README.md"
+Changelog = "https://github.com/pyxpo/pyxpo-onboarding/blob/main/CHANGELOG.md"
+Source = "https://github.com/pyxpo/pyxpo-onboarding"
+Issues = "https://github.com/pyxpo/pyxpo-onboarding/issues"
+
+# How `pyxpo build` finds this module: the entry point name is the module name apps list in
+# `[tool.pyxpo] modules`, its value the import package holding pyxpo-module.json.
+[project.entry-points."pyxpo.modules"]
+onboarding = "pyxpo_onboarding"
+
+[tool.setuptools]
+packages = ["pyxpo_onboarding"]
+
+[tool.setuptools.dynamic]
+version = { attr = "pyxpo_onboarding.__version__" }
+
+[tool.setuptools.package-data]
+pyxpo_onboarding = ["pyxpo-module.json", "py.typed"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["__pycache__", "*.pyc", ".DS_Store"]
