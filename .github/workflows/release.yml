@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install ./core pytest build twine
-      - run: pip install --no-deps -e ./pkg
+      - run: pip install --no-deps -e ./pkg "pyxpo-storage>=0.1.0a2"
       - run: python -m pytest -q
         working-directory: pkg
       - name: build and check (wheel + sdist carry pyxpo-module.json, Swift, Kotlin, entry point; tag matches version)

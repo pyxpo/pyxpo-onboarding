@@ -20,6 +20,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install "pyxpo @ git+https://github.com/pyxpo/pyxpo.git" pytest
+      - run: pip install --no-deps "pyxpo-storage>=0.1.0a2"
       # --no-deps: core comes from main above; the package may already ask for a core version not yet on PyPI.
       - run: pip install --no-deps -e .
       - run: python -m pytest -q
